@@ -56,3 +56,21 @@ def login(user: UserCreate):
     finally:
         cursor.close()
         conn.close()
+
+
+@router.get("/user/{user_id}")
+def get_user(user_id: int):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("SELECT mobile FROM users WHERE id = %s", (user_id,))
+        result = cursor.fetchone()
+        if not result:
+            raise HTTPException(status_code=404, detail="User not found")
+        return {"mobile": result[0]}
+    except Exception as e:
+        conn.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
