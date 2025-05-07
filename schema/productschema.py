@@ -5,6 +5,8 @@ class ProductCreate(BaseModel):
     price: float
     qr_code: str
     department_id: int
+    stock_quantity: int
+    reorder_threshold: int
 
 
 class Product(BaseModel):
@@ -13,3 +15,5 @@ class Product(BaseModel):
     price: float
     qr_code: str
     department_id: int
+    stock_quantity: int
+    reorder_threshold: int

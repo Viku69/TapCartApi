@@ -10,8 +10,8 @@ def add_product(product: ProductCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("INSERT INTO products (name, price, qr_code , department_id) VALUES (%s, %s, %s , %s)",
-                       (product.name, product.price, product.qr_code , product.department_id))
+        cursor.execute("INSERT INTO products (name, price, qr_code , department_id , stock_quantity , reorder_threshold) VALUES (%s, %s, %s , %s, %s , %s)",
+                       (product.name, product.price, product.qr_code, product.department_id, product.stock_quantity,  product.reorder_threshold))
         conn.commit()
         return {"message": "Product added successfully"}
     except Exception as e:

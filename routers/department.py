@@ -5,7 +5,7 @@ router = APIRouter()
 
 
 @router.post("/departments/add")
-def add_store(department: DepartmentCreate):
+def add_department(department: DepartmentCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
