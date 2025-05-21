@@ -9,7 +9,7 @@ def add_department(department: DepartmentCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("INSERT INTO departments (name) VALUES (%s,)",
+        cursor.execute("INSERT INTO departments (name) VALUES (%s)",
                        (department.name,))
         conn.commit()
         return {"message": "Department added successfully"}

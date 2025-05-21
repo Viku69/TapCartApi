@@ -5,6 +5,15 @@ from database import get_db_connection
 router = APIRouter()
 
 
+@router.get("/holidays")
+def list_holidays():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT date, name FROM holidays ORDER BY date ASC")
+    holidays = cursor.fetchall()
+    conn.close()
+    return holidays
+
 @router.post("/add-holiday")
 def add_holiday(holiday: Holiday):
     conn = get_db_connection()
