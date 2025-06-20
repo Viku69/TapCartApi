@@ -158,9 +158,3 @@ Once the application is running, access the interactive API documentation at:
 
 ---
 
-## Authors
-
-- Vikram Singh
-- Varsha Raj
-- Swati Verma
-- Shivani Sharma
