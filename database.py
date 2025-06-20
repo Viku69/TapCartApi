@@ -3,7 +3,7 @@ import mysql.connector
 DATABASE_CONFIG = {
     "host":"127.0.0.1",
     "user":"root",
-    "password":"Sql@9667244829",
+    "password":"XXXXXXX",
     "database":"tapcart"
 }
 
